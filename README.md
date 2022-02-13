@@ -8,7 +8,7 @@ The purpose of this function is to obtain some basic information about the varia
 
 ## Example
 **checkDataset(include = ["Age", "YearsEducation", "YearsExperience", "Gender", "Race"],  
-exclude = ["Race"])
+exclude = ["Race"])**
 * In this example, we assume that Age, YearsEducation, and YearsExperience are continuous variables without value labels, while Gender and Race are categorical variables with value labels.
 * The function will provide descriptive statistics for Age, YearsEducation, and YearsExperience. It will provide frequencies for Gender.
 * No information about Race is provided because it is in the exclude list. Inclusion in the exclude list overrides inclusion in the include list.

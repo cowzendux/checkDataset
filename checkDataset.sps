@@ -22,7 +22,7 @@
 **** "graphs" is an optional boolean argument indicating whether you want to see graphs of each
 * variable's distribution. If you omit this argument then the graphs will not be provided.
 
-begin program python.
+BEGIN PROGRAM PYTHON3.
 import spss, spssaux, tempfile, os, sys, SpssClient
 
 def descriptive(variable, stat):
@@ -79,7 +79,7 @@ def descriptive(variable, stat):
 		handle,
 		tableSubtype="Statistics",
 		cellAttrib="text")
-          if (float(result[0]) <> 0 and len(result) > 2):
+          if (float(result[0]) != 0 and len(result) > 2):
                return float((result[2]))
 
 def _titleToPane():
@@ -90,7 +90,7 @@ def _titleToPane():
     filename = tempfile.mktemp() + ".txt"
     for index in range(outputItemList.Size()):
         outputItem = outputItemList.GetItemAt(index)
-        if outputItem.GetDescription() == u"Page Title":
+        if outputItem.GetDescription() == "Page Title":
             outputItem.ExportToDocument(filename, textFormat)
             with open(filename) as f:
                 outputItem.SetDescription(f.read().rstrip())
@@ -109,7 +109,7 @@ def titleToPane(spv=None):
         if spv and outputDoc:
             outputDoc.SaveAs(spv)
     except:
-        print "Error filling TITLE in Output Viewer [%s]" % sys.exc_info()[1]
+        print("Error filling TITLE in Output Viewer [%s]" % sys.exc_info()[1])
     finally:
         SpssClient.StopClient()
                
@@ -150,7 +150,7 @@ def checkDataset(include = None, exclude = None, tables = True, graphs = False):
             if (descriptive(var, "VALID") > 0):
                 conList.append(var)
             else:
-                print "{0} is continuous with no valid cases".format(var)
+                print("{0} is continuous with no valid cases".format(var))
     
 #### Categorical vars
     for var in catList:
